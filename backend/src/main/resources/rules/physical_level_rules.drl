@@ -1,0 +1,57 @@
+package rules
+
+import com.sbnz.backend.facts.UserInfo;
+import com.sbnz.backend.facts.WorkoutInfo;
+import enums.PhysicalLevel
+
+rule "User is beginner, last workout was easy Cardio"
+    //agenda-group "workout"
+    when
+    	$user: UserInfo( pl == PhysicalLevel.BEGINNER)
+        $wo: WorkoutInfo(difficulty == 1 && muscleGroup == WorkoutType.CARDIO)
+    then
+        System.out.println("----> Last workout was easy, set workout intensity accordingly");
+        modify($wo) {
+            setNumberOfEasyExercises(($wo.getNumberOfExercises()/2)-1)
+            setNumberOfHardExercises(($wo.getNumberOfExercises()/2)+1)
+        }
+end
+
+rule "User is intermediate, last workout was easy Cardio"
+    //agenda-group "workout"
+    when
+    	$user: UserInfo( pl == PhysicalLevel.INTERMEDIATE)
+        $wo: WorkoutInfo(difficulty == 1 && muscleGroup == WorkoutType.CARDIO)
+    then
+        System.out.println("----> Last workout was easy, set workout intensity accordingly");
+        modify($wo) {
+            setNumberOfEasyExercises(($wo.getNumberOfExercises()/2)-2)
+            setNumberOfHardExercises(($wo.getNumberOfExercises()/2)+2)
+        }
+end
+
+rule "User is advanced, last workout was easy Cardio"
+    //agenda-group "workout"
+    when
+    	$user: UserInfo( pl == PhysicalLevel.ADVANCED)
+        $wo: WorkoutInfo(difficulty == 1 && muscleGroup == WorkoutType.CARDIO)
+    then
+        System.out.println("----> Last workout was easy, set workout intensity accordingly");
+        modify($wo) {
+            setNumberOfEasyExercises(($wo.getNumberOfExercises()/2)-3)
+            setNumberOfHardExercises(($wo.getNumberOfExercises()/2)+3)
+        }
+end
+
+rule "User is beginner or intermediate, last workout was hard Cardio"
+    //agenda-group "workout"
+    when
+    	$user: UserInfo( pl == PhysicalLevel.BEGINNER || pl == PhysicalLevel.INTERMEDIATE)
+        $wo: WorkoutInfo(difficulty == 3 && muscleGroup == WorkoutType.CARDIO)
+    then
+        System.out.println("----> Last workout was easy, set workout intensity accordingly");
+        modify($wo) {
+            setNumberOfEasyExercises(($wo.getNumberOfExercises()/2)+1)
+            setNumberOfHardExercises(($wo.getNumberOfExercises()/2)-1)
+        }
+end
