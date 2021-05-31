@@ -10,7 +10,7 @@ import java.util.Random;
 global Random random;
 
 rule "User is malnourished Cardio"
-    //agenda-group "workout"
+    agenda-group "exercise_rest"
     when
     	$user: UserInfo( BMI == BMICategory.MALNOURISHED )
     	$wo: WorkoutInfo( muscleGroup == WorkoutType.CARDIO)
@@ -18,13 +18,13 @@ rule "User is malnourished Cardio"
         System.out.println("----> User is malnourished and is doing Cardio training, set the exercise time and rest time accordingly");
         modify($wo) {
             setExerciseDuration(25),
-            setRestBetweenExercises(35)
+            setRestBetweenExercises(35);
         }
 end
 
 
 rule "User is obese Cardio"
-    //agenda-group "workout"
+    agenda-group "exercise_rest"
     when
     	$user: UserInfo( BMI == BMICategory.OBESE )
     	$wo: WorkoutInfo( muscleGroup == WorkoutType.CARDIO)
@@ -32,13 +32,13 @@ rule "User is obese Cardio"
         System.out.println("----> User is obese and is doing Cardio training, set the exercise time and rest time accordingly");
         modify($wo) {
             setExerciseDuration(30),
-            setRestBetweenExercises(30)
+            setRestBetweenExercises(30);
         }
 end
 
 
 rule "User has normal BMI Cardio"
-    //agenda-group "workout"
+    agenda-group "exercise_rest"
     when
     	$user: UserInfo( BMI == BMICategory.NORMAL )
     	$wo: WorkoutInfo( muscleGroup == WorkoutType.CARDIO)
@@ -46,13 +46,13 @@ rule "User has normal BMI Cardio"
         System.out.println("----> User has Normal BMI and is doing Cardio training, set the exercise time and rest time accordingly");
         modify($wo) {
             setExerciseDuration(45),
-            setRestBetweenExercises(15)
+            setRestBetweenExercises(15);
         }
 end
 
 
 rule "User is malnourished Strength"
-    //agenda-group "workout"
+    agenda-group "exercise_rest"
     when
     	$user: UserInfo( BMI == BMICategory.MALNOURISHED )
     	$wo: WorkoutInfo( muscleGroup != WorkoutType.CARDIO)
@@ -61,14 +61,14 @@ rule "User is malnourished Strength"
         modify($wo) {
             setRestBetweenSets(45),
             setRestBetweenExercises(60),
-            setRepetitions(random.nextInt(3)+6),
+            //setRepetitions(random.nextInt(3)+6),
             setNumberOfSets(3),
-            setNumberOfExercises(4)
+            setNumberOfExercises(4);
         }
 end
 
 rule "User is obese Strength"
-    //agenda-group "workout"
+    agenda-group "exercise_rest"
     when
     	$user: UserInfo( BMI == BMICategory.OBESE )
     	$wo: WorkoutInfo( muscleGroup != WorkoutType.CARDIO)
@@ -77,15 +77,15 @@ rule "User is obese Strength"
         modify($wo) {
             setRestBetweenSets(60),
             setRestBetweenExercises(90),
-            setRepetitions(random.nextInt(3)+10),
+            //setRepetitions(random.nextInt(3)+10),
             setNumberOfSets(random.nextInt(3)+1),
-            setNumberOfExercises(4)
+            setNumberOfExercises(4);
         }
 end
 
 
 rule "User has normal BMI Strength"
-    //agenda-group "workout"
+    agenda-group "exercise_rest"
     when
     	$user: UserInfo( BMI == BMICategory.NORMAL )
     	$wo: WorkoutInfo( muscleGroup != WorkoutType.CARDIO)
@@ -96,6 +96,6 @@ rule "User has normal BMI Strength"
             setRestBetweenExercises(90),
             setRepetitions(random.nextInt(5)+12),
             setNumberOfSets(random.nextInt(3)+2),
-            setNumberOfExercises(6)
+            setNumberOfExercises(6);
         }
 end

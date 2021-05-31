@@ -5,38 +5,38 @@ import com.sbnz.backend.facts.WorkoutInfo;
 import enums.WorkoutType
 
 rule "Cardio training with duration set to 10minutes"
-    //agenda-group "workout"
+    agenda-group "workout"
     when
     	$wo: WorkoutInfo( muscleGroup == WorkoutType.CARDIO && duration == 10)
     then
         System.out.println("----> 10 minutes cardio training selected, set number of exercises accordingly");
         modify($wo) {
             setNumberOfExercises(10),
-            setNumberOfRepetitions(1)
+            setNumberOfRepetitions(1);
         }
 end
 
 
 rule "Cardio training with duration set to 20minutes"
-    //agenda-group "workout"
+    agenda-group "workout"
     when
     	$wo: WorkoutInfo( muscleGroup == WorkoutType.CARDIO && duration == 20)
     then
         System.out.println("----> 20 minutes cardio training selected, set number of exercises accordingly");
         modify($wo) {
             setNumberOfExercises(10),
-            setNumberOfRepetitions(2)
+            setNumberOfRepetitions(2);
         }
 end
 
 rule "Cardio training with duration set to 30minutes"
-    //agenda-group "workout"
+    agenda-group "workout"
     when
     	$wo: WorkoutInfo( muscleGroup == WorkoutType.CARDIO && duration == 30)
     then
         System.out.println("----> 20 minutes cardio training selected, set number of exercises accordingly");
         modify($wo) {
             setNumberOfExercises(15),
-            setNumberOfRepetitions(2)
+            setNumberOfRepetitions(2);
         }
 end

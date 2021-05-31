@@ -19,10 +19,11 @@ public class UserInfo {
 	private PhysicalLevel pl;
 	private ArrayList<Equipment> equipment;
 	private BMICategory BMI;
+	private double BMIbroj;
 
 	public UserInfo() {
-		this.weight = 50;
-		this.height = 150;
+		//this.weight = 50;
+		//this.height = 150;
 		this.pl = PhysicalLevel.BEGINNER;
 	}
 	
@@ -31,6 +32,14 @@ public class UserInfo {
 		this.height = u.getHeight();
 		this.pl = u.getPl();
 		this.equipment = u.getEquipment();
+	}
+
+	public double getBMIbroj() {
+		return BMIbroj;
+	}
+
+	public void setBMIbroj(double weight, double height) {
+		BMIbroj = weight / Math.sqrt(height);
 	}
 
 	public double getWeight() {

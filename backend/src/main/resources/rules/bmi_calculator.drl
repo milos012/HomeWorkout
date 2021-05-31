@@ -5,39 +5,41 @@ import enums.BMICategory;
 import java.lang.Math;
 
 rule "User's BMI is below 18.5"
-    //agenda-group "processing"
+    agenda-group "processing"
     when
     	$user: UserInfo((weight / Math.sqrt(height)) < 18.5)
+    	//$user: UserInfo(BMIbroj < 18.5)
     then
         System.out.println("----> User's bmi metric is below 18.5, set BMI to malnurished");
         modify($user) {
-            setBMI(BMICategory.MALNOURISHED)
+            setBMI(BMICategory.MALNOURISHED);
             
         }
 end
 
 
 rule "User's BMI is between 18.5 and 24.9"
-    //agenda-group "processing"
+    agenda-group "processing"
     when
     	$user: UserInfo(((weight / Math.sqrt(height)) >= 18.5) && ((weight / Math.sqrt(height)) <= 24.9))
+    	//$user: UserInfo((BMIbroj >= 18.5) && (BMIbroj <= 24.9))
     then
         System.out.println("----> User's bmi metric is between 18.5 and 24.9, set BMI to normal");
         modify($user) {
-            setBMI(BMICategory.NORMAL)
+            setBMI(BMICategory.NORMAL);
             
         }
 end
 
 
 rule "User's BMI is above 24.9"
-    //agenda-group "processing"
+    agenda-group "processing"
     when
     	$user: UserInfo((weight / Math.sqrt(height)) > 24.9)
     then
         System.out.println("----> User's bmi metric is above 24.9, set BMI to obese");
         modify($user) {
-            setBMI(BMICategory.OBESE)
+            setBMI(BMICategory.OBESE);
             
         }
 end
