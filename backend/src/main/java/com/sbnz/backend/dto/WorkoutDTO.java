@@ -1,11 +1,4 @@
-package com.sbnz.backend.models;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+package com.sbnz.backend.dto;
 
 import enums.WorkoutType;
 import lombok.AllArgsConstructor;
@@ -13,20 +6,16 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "workout")
-public abstract class Workout {
+public class WorkoutDTO {
 	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name = "difficulty")
 	private int difficulty;
-	
-	@Column(name = "muscleGroup")
 	private WorkoutType muscleGroup;
 	
+	public WorkoutDTO(int difficulty, WorkoutType muscleGroup) {
+		this.difficulty = difficulty;
+		this.muscleGroup = muscleGroup;
+	}
 	
 	public Long getId() {
 		return id;
@@ -40,18 +29,13 @@ public abstract class Workout {
 	public void setDifficulty(int difficulty) {
 		this.difficulty = difficulty;
 	}
-	
-	public Workout(Long id) {
-		super();
-		this.id = id;
-	}
 	public WorkoutType getMuscleGroup() {
 		return muscleGroup;
 	}
-	
 	public void setMuscleGroup(WorkoutType muscleGroup) {
 		this.muscleGroup = muscleGroup;
 	}
-
 	
+	
+
 }
