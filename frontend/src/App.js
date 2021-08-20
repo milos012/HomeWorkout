@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import UserDataEdit from './components/UserDataComponent';
+import ChooseCardio from './components/CardioComponent';
+import ChooseStrength from './components/StrengthComponent';
+import WorkoutGenerator from './components/WorkoutComponent';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,7 +21,11 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      {/* <UserDataEdit/> */}
+      {/* <ChooseCardio/> */}
+      {/* <ChooseStrength/> */}
+      <WorkoutGenerator/>
     </div>
   );
 }
