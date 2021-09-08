@@ -67,7 +67,7 @@ const UserDataEdit=()=>{
                         name="height"
                         style={marginTop}
                     />
-                    <FormControl component="fieldset" style={marginTop} required>
+                    <FormControl component="fieldset" style={marginTop}>
                         <FormLabel component="legend">Physical level</FormLabel>
                         <RadioGroup aria-label="PhysicalLevel" name="PhysicalLevel" style={{display:'initial'}}>
                             <FormControlLabel value="BEGINNER" control={<Radio />} label="Beginner" />
