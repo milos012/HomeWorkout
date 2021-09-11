@@ -13,13 +13,31 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import AvTimerIcon from '@material-ui/icons/AvTimer';
+import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
 
 const Home = () => {
+    const classes = useStyles();
     return ( 
-        <div className="home">
+        <div className={classes.root}>
             <h2>Homepage</h2>
+            <br></br>
+            <br></br>
+            <Button variant="contained" color="secondary" href="chooseCardio">
+            Generate Cardio workout
+            </Button>
+            
+            <Button variant="contained" color="secondary" href="chooseStrength">
+            Generate Strength workout
+            </Button>
         </div>
      );
 }

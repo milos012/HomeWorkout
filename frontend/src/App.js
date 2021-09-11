@@ -5,6 +5,8 @@ import ChooseCardio from './components/CardioComponent';
 import ChooseStrength from './components/StrengthComponent';
 import WorkoutGenerator from './components/WorkoutComponent';
 import Navbar from './components/Navbar';
+import Home from './components/HomeComponent';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
