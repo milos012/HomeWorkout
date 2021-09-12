@@ -5,7 +5,6 @@ import sbnz.integracija.example.facts.WorkoutInfo;
 import sbnz.integracija.example.enums.WorkoutType
 
 rule "Cardio training with duration set to 10minutes"
-    agenda-group "workout"
     when
     	$wo: WorkoutInfo( muscleGroup == WorkoutType.CARDIO && duration == 10)
     then
@@ -18,7 +17,6 @@ end
 
 
 rule "Cardio training with duration set to 20minutes"
-    agenda-group "workout"
     when
     	$wo: WorkoutInfo( muscleGroup == WorkoutType.CARDIO && duration == 20)
     then
@@ -30,7 +28,6 @@ rule "Cardio training with duration set to 20minutes"
 end
 
 rule "Cardio training with duration set to 30minutes"
-    agenda-group "workout"
     when
     	$wo: WorkoutInfo( muscleGroup == WorkoutType.CARDIO && duration == 30)
     then

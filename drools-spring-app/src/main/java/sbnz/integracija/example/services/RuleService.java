@@ -31,14 +31,24 @@ public class RuleService {
 		return ui;
 	}
 	
-//	public UserInfo,WorkoutInfo getWorkoutInfo(UserInfo ui, WorkoutType muscleGroup) {
-//		WorkoutInfo woi = new WorkoutInfo(muscleGroup);
-//		KieSession kieSession = kieContainer.newKieSession();
-//		kieSession.insert(ui);
-//		kieSession.insert(woi);
-//		kieSession.fireAllRules();
-//		kieSession.dispose();
-//		return woi;
-//	}
+	public WorkoutInfo getWorkoutInfo(UserInfo ui, WorkoutType muscleGroup) {
+		WorkoutInfo woi = new WorkoutInfo(muscleGroup);
+		KieSession kieSession = kieContainer.newKieSession();
+		kieSession.insert(ui);
+		kieSession.insert(woi);
+		kieSession.fireAllRules();
+		kieSession.dispose();
+		return woi;
+	}
+	
+	public WorkoutInfo getWorkoutInfoCardio(UserInfo ui, WorkoutType muscleGroup,int duration) {
+		WorkoutInfo woi = new WorkoutInfo(muscleGroup,duration);
+		KieSession kieSession = kieContainer.newKieSession();
+		kieSession.insert(ui);
+		kieSession.insert(woi);
+		kieSession.fireAllRules();
+		kieSession.dispose();
+		return woi;
+	}
 
 }

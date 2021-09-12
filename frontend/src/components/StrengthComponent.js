@@ -46,13 +46,13 @@ function AlertSucc() {
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state)
-        // axios.post('/api/user/add',this.state).then(response=>
-        // {
-        //     console.log(response)
-        // })
-        // .catch(error =>{
-        //     console.log(error)
-        // })
+        axios.post('/api/user/generateStr',this.state.muscleGroup).then(response=>
+        {
+            console.log(response)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
     }
 
       render() { 

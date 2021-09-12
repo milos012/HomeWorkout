@@ -35,9 +35,14 @@ public class WorkoutInfo {
 		this.difficulty = w.getDifficulty();
 	}
 	
-	public WorkoutInfo(WorkoutType muscleGroup, int difficulty) {
+//	public WorkoutInfo(WorkoutType muscleGroup, int difficulty) {
+//		this.muscleGroup = muscleGroup;
+//		this.difficulty = difficulty;
+//	}
+	
+	public WorkoutInfo(WorkoutType muscleGroup,int duration) {
 		this.muscleGroup = muscleGroup;
-		this.difficulty = difficulty;
+		this.duration = duration;
 	}
 	
 	public WorkoutInfo(WorkoutType muscleGroup) {
@@ -124,7 +129,16 @@ public class WorkoutInfo {
 	public void setDifficulty(int difficulty) {
 		this.difficulty = difficulty;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "WorkoutInfo [muscleGroup=" + muscleGroup + ", numberOfExercises=" + numberOfExercises
+				+ ", numberOfEasyExercises=" + numberOfEasyExercises + ", numberOfHardExercises="
+				+ numberOfHardExercises + ", restBetweenExercises=" + restBetweenExercises + ", difficulty="
+				+ difficulty + ", restBetweenSets=" + restBetweenSets + ", repetitions=" + repetitions
+				+ ", numberOfSets=" + numberOfSets + ", duration=" + duration + ", numberOfRepetitions="
+				+ numberOfRepetitions + ", exerciseDuration=" + exerciseDuration + "]";
+	}
 	
 	
 }

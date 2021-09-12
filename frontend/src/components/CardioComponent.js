@@ -47,13 +47,13 @@ function AlertSucc() {
         submitHandler = e => {
             e.preventDefault()
             console.log(this.state)
-            // axios.post('/api/user/add',this.state).then(response=>
-            // {
-            //     console.log(response)
-            // })
-            // .catch(error =>{
-            //     console.log(error)
-            // })
+            axios.post('/api/user/generateCardio',this.state.duration).then(response=>
+            {
+                console.log(response)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
         }
 
       render() { 
@@ -71,9 +71,9 @@ function AlertSucc() {
                         <FormControl component="fieldset" style={marginTop} required>
                             <FormLabel component="legend">Workout duration</FormLabel>
                             <RadioGroup aria-label="Duration" name="duration" style={{display:'initial'}} value={duration} onChange={this.changeHandler}>
-                                <FormControlLabel value="10min" control={<Radio />} label="10min" />
-                                <FormControlLabel value="20min" control={<Radio />} label="20min" />
-                                <FormControlLabel value="30min" control={<Radio />} label="30min" />
+                                <FormControlLabel value="10" control={<Radio />} label="10min" />
+                                <FormControlLabel value="20" control={<Radio />} label="20min" />
+                                <FormControlLabel value="30" control={<Radio />} label="30min" />
                             </RadioGroup>
                         </FormControl>
                         <Button

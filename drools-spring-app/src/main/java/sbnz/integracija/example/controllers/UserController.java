@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import sbnz.integracija.example.dto.UserDTO;
+import sbnz.integracija.example.enums.WorkoutType;
 import sbnz.integracija.example.facts.UserInfo;
+import sbnz.integracija.example.facts.WorkoutInfo;
 import sbnz.integracija.example.models.User;
 import sbnz.integracija.example.services.RuleService;
 import sbnz.integracija.example.services.UserService;
@@ -70,12 +72,42 @@ public class UserController {
             User test = userService.save(ex);
             
             UserInfo test2 = ruleService.getUserInfo(ex);
-            System.out.println("Pozvana metoda=====");
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(exDTO, HttpStatus.CREATED);
+    }
+	
+	@RequestMapping(value = "/generateStr", method = RequestMethod.POST)
+    public ResponseEntity<WorkoutInfo> generateWOStr(@RequestBody String tip){
+		User ex = userService.findById(1l).orElseThrow();
+		String str = tip.substring(0, tip.length() - 1);
+        WorkoutType woTip = WorkoutType.valueOf(str);
+        
+        UserInfo test2 = ruleService.getUserInfo(ex);
+        WorkoutInfo woInfo = ruleService.getWorkoutInfo(test2, woTip);
+        
+        System.out.println("========WORKOUT INFO======");
+        System.out.println(woInfo.toString());
+
+        return new ResponseEntity<>(woInfo, HttpStatus.CREATED);
+    }
+	
+	@RequestMapping(value = "/generateCardio", method = RequestMethod.POST)
+    public ResponseEntity<WorkoutInfo> generateWOC(@RequestBody String duration){
+		User ex = userService.findById(2l).orElseThrow();
+		String str = duration.substring(0, duration.length() - 1);
+		int dur = Integer.parseInt(str);
+        WorkoutType woTip = WorkoutType.CARDIO;
+        
+        UserInfo test2 = ruleService.getUserInfo(ex);
+        WorkoutInfo woInfo = ruleService.getWorkoutInfoCardio(test2, woTip,dur);
+        
+        System.out.println("========WORKOUT INFO======");
+        System.out.println(woInfo.toString());
+
+        return new ResponseEntity<>(woInfo, HttpStatus.CREATED);
     }
 
 }
