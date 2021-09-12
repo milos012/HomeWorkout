@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -34,12 +34,45 @@ function AlertSucc() {
   );
 }
 
+class UserDataEdit extends Component {
+    constructor(props){
+        super(props)
 
-const UserDataEdit=()=>{
+        this.state = {
+            weight: '',
+            height: '',
+            pl: '',
+            equipment:[]
 
+        }
+    }
 
-    return(
-        <Grid>
+    changeHandler = e => {
+        this.setState({[e.target.name]: e.target.value})
+    }
+
+    equipmentHandler = e => {
+        let lista = this.state.equipment
+        lista.push(e.target.name)
+        this.setState({equipment: lista})
+    }
+
+    submitHandler = e => {
+        e.preventDefault()
+        console.log(this.state)
+        axios.post('/api/user/add',this.state).then(response=>
+        {
+            console.log(response)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    }
+
+    render() { 
+        const {weight,height,pl,equipment} = this.state
+        return (
+            <Grid>
             <Paper elevation={20} style={paperStyle}>
                 <Grid align='center'>
                     <Avatar style={avatarStyle}>
@@ -47,7 +80,7 @@ const UserDataEdit=()=>{
                     </Avatar>
                     <h2 style={headerStyle}>Edit user data</h2>
                 </Grid>
-                <form>
+                <form onSubmit={this.submitHandler}>
                     <TextField
                         name="weight"
                         variant="outlined"
@@ -57,6 +90,8 @@ const UserDataEdit=()=>{
                         label="Weight"
                         autoFocus
                         style={marginTop}
+                        value={weight}
+                        onChange={this.changeHandler}
                     />
                     <TextField
                         variant="outlined"
@@ -66,17 +101,19 @@ const UserDataEdit=()=>{
                         label="Height"
                         name="height"
                         style={marginTop}
+                        value={height}
+                        onChange={this.changeHandler}
                     />
                     <FormControl component="fieldset" style={marginTop}>
                         <FormLabel component="legend">Physical level</FormLabel>
-                        <RadioGroup aria-label="PhysicalLevel" name="PhysicalLevel" style={{display:'initial'}}>
+                        <RadioGroup aria-label="PhysicalLevel" name="pl" style={{display:'initial'}} value={pl} onChange={this.changeHandler}>
                             <FormControlLabel value="BEGINNER" control={<Radio />} label="Beginner" />
                             <FormControlLabel value="INTERMEDIATE" control={<Radio />} label="Intermediate" />
                             <FormControlLabel value="ADVANCED" control={<Radio />} label="Advanced" />
                         </RadioGroup>
                     </FormControl>
                     <FormLabel component="legend">Equipment</FormLabel>
-                    <FormGroup row name="Equipment">
+                    <FormGroup row name="equipment" value={equipment} onChange={this.equipmentHandler}>
                         <FormControlLabel
                         control={<Checkbox name="JUMP_ROPE" />}
                         label="Jump rope"
@@ -91,14 +128,14 @@ const UserDataEdit=()=>{
                     fullWidth
                     variant="contained"
                     color="primary"
-                    onClick="AlertSucc()"
                     >
-                        submit
+                        Submit
                     </Button>
                 </form>
             </Paper>
         </Grid>
-    );
+          );
+    }
 }
-
+ 
 export default UserDataEdit;

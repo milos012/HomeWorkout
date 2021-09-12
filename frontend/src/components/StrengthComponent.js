@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -31,43 +31,66 @@ function AlertSucc() {
     );
   }
 
-  const ChooseStrength=()=>{
-      return(
-        <Grid>
-            <Paper elevation={20} style={paperStyle}>
-                <Grid align='center'>
-                    <Avatar style={avatarStyle}>
-                        <SportsIcon/>
-                    </Avatar>
-                    <h2 style={headerStyle}>Choose muscle group</h2>
-                </Grid>
-                <form>
-                    <FormControl component="fieldset" style={marginTop} required>
-                        <FormLabel component="legend">Muscle groups</FormLabel>
-                        <RadioGroup aria-label="Duration" name="duration" style={{display:'initial'}}>
-                            <FormControlLabel value="ARMS" control={<Radio />} label="Arms" />
-                            <FormControlLabel value="BACK" control={<Radio />} label="Back" />
-                            <FormControlLabel value="CHEST" control={<Radio />} label="Chest" />
-                            <FormControlLabel value="SHOULDERS" control={<Radio />} label="Shoulders" />
-                            <FormControlLabel value="ABS" control={<Radio />} label="Abs" />
-                            <FormControlLabel value="LEGS" control={<Radio />} label="Legs" />
-                        </RadioGroup>
-                    </FormControl>
-                    <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    onClick="AlertSucc()"
-                    >
-                        submit
-                    </Button>
-                </form>
-            </Paper>
-        </Grid>
+  class ChooseStrength extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            muscleGroup: ''
+         }
+    }
 
-      );
+    changeHandler = e => {
+        this.setState({[e.target.name]: e.target.value})
+    }
 
+    submitHandler = e => {
+        e.preventDefault()
+        console.log(this.state)
+        // axios.post('/api/user/add',this.state).then(response=>
+        // {
+        //     console.log(response)
+        // })
+        // .catch(error =>{
+        //     console.log(error)
+        // })
+    }
+
+      render() { 
+        const {muscleGroup} = this.state
+          return (
+            <Grid>
+                <Paper elevation={20} style={paperStyle}>
+                    <Grid align='center'>
+                        <Avatar style={avatarStyle}>
+                            <SportsIcon/>
+                        </Avatar>
+                        <h2 style={headerStyle}>Choose muscle group</h2>
+                    </Grid>
+                    <form onSubmit={this.submitHandler}>
+                        <FormControl component="fieldset" style={marginTop} required>
+                            <FormLabel component="legend">Muscle groups</FormLabel>
+                            <RadioGroup aria-label="muscleGroup" name="muscleGroup" style={{display:'initial'}} value={muscleGroup} onChange={this.changeHandler}>
+                                <FormControlLabel value="ARMS" control={<Radio />} label="Arms" />
+                                <FormControlLabel value="BACK" control={<Radio />} label="Back" />
+                                <FormControlLabel value="CHEST" control={<Radio />} label="Chest" />
+                                <FormControlLabel value="SHOULDERS" control={<Radio />} label="Shoulders" />
+                                <FormControlLabel value="ABS" control={<Radio />} label="Abs" />
+                                <FormControlLabel value="LEGS" control={<Radio />} label="Legs" />
+                            </RadioGroup>
+                        </FormControl>
+                        <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        >
+                            submit
+                        </Button>
+                    </form>
+                </Paper>
+            </Grid>
+            );
+      }
   }
-
+   
   export default ChooseStrength;

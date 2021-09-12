@@ -38,14 +38,11 @@ public class User {
 	
 	@Column(name = "equipment")
 	private ArrayList<Equipment> equipment;
-	//private ArrayList<Workout> pastWorkouts;
 	
 	public User(long id, String username, String password, double weight, double height, PhysicalLevel pl,
 			ArrayList<Equipment> equipment) {
 		super();
 		this.id = id;
-		//this.username = username;
-		//this.password = password;
 		this.weight = weight;
 		this.height = height;
 		this.pl = pl;
@@ -59,18 +56,7 @@ public class User {
 	public void setId(long id) {
 		this.id = id;
 	}
-//	public String getUsername() {
-//		return username;
-//	}
-//	public void setUsername(String username) {
-//		this.username = username;
-//	}
-//	public String getPassword() {
-//		return password;
-//	}
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
+
 	public double getWeight() {
 		return weight;
 	}
@@ -95,12 +81,6 @@ public class User {
 	public void setEquipment(ArrayList<Equipment> equipment) {
 		this.equipment = equipment;
 	}
-//	public ArrayList<Workout> getPastWorkouts() {
-//		return pastWorkouts;
-//	}
-//	public void setPastWorkouts(ArrayList<Workout> pastWorkouts) {
-//		this.pastWorkouts = pastWorkouts;
-//	}
-	
+
 	
 }
