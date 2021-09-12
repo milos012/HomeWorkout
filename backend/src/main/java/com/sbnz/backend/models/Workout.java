@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "workout")
-public abstract class Workout {
+public class Workout {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

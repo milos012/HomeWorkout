@@ -2,6 +2,8 @@ package com.sbnz.backend.dto;
 
 import java.util.ArrayList;
 
+import com.sbnz.backend.models.User;
+
 import enums.Equipment;
 import enums.PhysicalLevel;
 import lombok.AllArgsConstructor;
@@ -23,6 +25,14 @@ public class UserDTO {
 		this.height = height;
 		this.pl = pl;
 		this.equipment = equipment;
+	}
+	
+	public UserDTO(User u) {
+		this.id = u.getId();
+		this.weight = u.getWeight();
+		this.height = u.getHeight();
+		this.pl = u.getPl();
+		this.equipment = u.getEquipment();
 	}
 
 	public long getId() {

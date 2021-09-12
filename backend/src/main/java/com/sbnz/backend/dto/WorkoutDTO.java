@@ -1,5 +1,7 @@
 package com.sbnz.backend.dto;
 
+import com.sbnz.backend.models.Workout;
+
 import enums.WorkoutType;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,12 @@ public class WorkoutDTO {
 	public WorkoutDTO(int difficulty, WorkoutType muscleGroup) {
 		this.difficulty = difficulty;
 		this.muscleGroup = muscleGroup;
+	}
+	
+	public WorkoutDTO(Workout wo) {
+		this.id = wo.getId();
+		this.difficulty = wo.getDifficulty();
+		this.muscleGroup = wo.getMuscleGroup();
 	}
 	
 	public Long getId() {

@@ -1,5 +1,7 @@
 package com.sbnz.backend.dto;
 
+import com.sbnz.backend.models.Exercise;
+
 import enums.Equipment;
 import enums.WorkoutType;
 import lombok.AllArgsConstructor;
@@ -53,6 +55,16 @@ public class ExerciseDTO {
 	}
 	public void setDifficulty(int difficulty) {
 		this.difficulty = difficulty;
+	}
+	
+	public ExerciseDTO(Exercise exercise) {
+		this.id = exercise.getId();
+		this.name = exercise.getName();
+		this.description = exercise.getDescription();
+		this.workoutType = exercise.getWorkoutType();
+		this.requiredEquipment = exercise.getRequiredEquipment();
+		this.difficulty = exercise.getDifficulty();
+		
 	}
 	
 

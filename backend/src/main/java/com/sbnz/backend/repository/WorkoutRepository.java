@@ -6,6 +6,5 @@ import com.sbnz.backend.models.Workout;
 
 public interface WorkoutRepository extends JpaRepository<Workout, Long>{
 	
-	Workout findWOById(Long id);
 
 }
