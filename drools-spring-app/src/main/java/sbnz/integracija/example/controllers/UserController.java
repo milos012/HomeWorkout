@@ -14,13 +14,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import sbnz.integracija.example.dto.UserDTO;
+import sbnz.integracija.example.facts.UserInfo;
 import sbnz.integracija.example.models.User;
+import sbnz.integracija.example.services.RuleService;
 import sbnz.integracija.example.services.UserService;
 
 
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
+	
+	@Autowired
+	private RuleService ruleService;
 	
 	@Autowired
 	private UserService userService;
@@ -64,6 +69,8 @@ public class UserController {
             
             User test = userService.save(ex);
             
+            UserInfo test2 = ruleService.getUserInfo(ex);
+            System.out.println("Pozvana metoda=====");
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

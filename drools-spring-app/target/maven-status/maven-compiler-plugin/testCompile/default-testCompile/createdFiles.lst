@@ -1,0 +1,4 @@
+rules\bmi_test.class
+rules\physical_level_test.class
+rules\cardio_difficulty_test.class
+rules\exercise_rest_duration_test.class

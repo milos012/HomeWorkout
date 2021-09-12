@@ -38,7 +38,7 @@ public class UserInfo {
 	}
 
 	public void setBMIbroj(double weight, double height) {
-		BMIbroj = weight / Math.sqrt(height);
+		this.BMIbroj = (weight / height/height)*10000;
 	}
 
 	public double getWeight() {

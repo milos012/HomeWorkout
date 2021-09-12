@@ -1,8 +1,8 @@
-package rules
+package sbnz.integracija;
 
-import com.sbnz.backend.facts.UserInfo;
-import com.sbnz.backend.facts.WorkoutInfo;
-import enums.WorkoutType
+import sbnz.integracija.example.facts.UserInfo;
+import sbnz.integracija.example.facts.WorkoutInfo;
+import sbnz.integracija.example.enums.WorkoutType
 
 rule "Cardio training with duration set to 10minutes"
     agenda-group "workout"

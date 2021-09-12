@@ -1,8 +1,8 @@
-package rules
+package sbnz.integracija;
 
-import com.sbnz.backend.facts.UserInfo;
-import com.sbnz.backend.facts.WorkoutInfo;
-import enums.PhysicalLevel
+import sbnz.integracija.example.facts.UserInfo;
+import sbnz.integracija.example.facts.WorkoutInfo;
+import sbnz.integracija.example.enums.PhysicalLevel
 
 rule "User is beginner, last workout was easy Cardio"
     agenda-group "pl"

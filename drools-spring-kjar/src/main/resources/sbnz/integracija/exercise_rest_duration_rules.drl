@@ -1,9 +1,9 @@
-package rules
+package sbnz.integracija;
 
-import com.sbnz.backend.facts.UserInfo;
-import com.sbnz.backend.facts.WorkoutInfo;
-import enums.BMICategory;
-import enums.WorkoutType
+import sbnz.integracija.example.facts.UserInfo;
+import sbnz.integracija.example.facts.WorkoutInfo;
+import sbnz.integracija.example.enums.BMICategory;
+import sbnz.integracija.example.enums.WorkoutType;
 import java.lang.Math;
 import java.util.Random;
 

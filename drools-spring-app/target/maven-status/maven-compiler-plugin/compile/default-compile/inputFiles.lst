@@ -1,9 +1,9 @@
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\controllers\UserController.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\dto\ExerciseDTO.java
-C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\models\Item.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\SampleAppController.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\services\ExerciseService.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\enums\PhysicalLevel.java
+C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\services\RuleService.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\enums\Equipment.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\facts\WorkoutInfo.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\models\CardioExercise.java
@@ -19,6 +19,7 @@ C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\e
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\controllers\WorkoutController.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\enums\WorkoutType.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\facts\UserInfo.java
+C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\facts\Item.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\models\Exercise.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\models\StrengthExercise.java
 C:\Users\User\git\HomeWorkout\drools-spring-app\src\main\java\sbnz\integracija\example\SampleApp.java

@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import sbnz.integracija.example.models.Item;
+import sbnz.integracija.example.facts.Item;
 
 @Service
 public class SampleAppService {

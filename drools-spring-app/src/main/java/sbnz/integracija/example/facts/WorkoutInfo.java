@@ -35,6 +35,15 @@ public class WorkoutInfo {
 		this.difficulty = w.getDifficulty();
 	}
 	
+	public WorkoutInfo(WorkoutType muscleGroup, int difficulty) {
+		this.muscleGroup = muscleGroup;
+		this.difficulty = difficulty;
+	}
+	
+	public WorkoutInfo(WorkoutType muscleGroup) {
+		this.muscleGroup = muscleGroup;
+	}
+	
 	public WorkoutType getMuscleGroup() {
 		return muscleGroup;
 	}

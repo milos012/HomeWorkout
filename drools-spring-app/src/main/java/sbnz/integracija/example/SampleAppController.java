@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import sbnz.integracija.example.models.Item;
+import sbnz.integracija.example.facts.Item;
 
 @RestController
 public class SampleAppController {
